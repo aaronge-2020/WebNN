@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Foundation CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.7.4/css/foundation.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <!-- Foundation JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.7.4/js/foundation.min.js"></script>
+
+    <title>Research Article Recommender</title>
+</head>
+<body>
+    <header class="top-bar">
+        <div class="top-bar-left">
+            <h1>Research Article Recommender</h1>
+        </div>
+    </header>
+    <main class="grid-container">
+        
+        <section class="grid-x grid-padding-x search-section">
+            <div class="cell small-12">
+                <label>Keywords:</label>
+                <div id="keywords-container"></div>
+                <input type="text" id="keyword-input">
+                <button class="button secondary" id="add-keyword-button">Add Keyword</button>
+            </div>
+
+            <!-- <div class="cell small-12">
+                <label for="search-input">Enter keywords or topics:</label>
+                <input type="text" id="search-input">
+            </div> -->
+            <div class="cell small-12">
+                <button class="button" id="search-button">Search</button>
+            </div>
+            <div class="cell small-12">
+                <div class="grid-x grid-padding-x filters">
+                    <div class="cell small-4">
+                        <label for="filter-date">Date:</label>
+                        <select id="filter-date">
+                            <option value="latest">Latest</option>
+                            <option value="oldest">Oldest</option>
+                        </select>
+                    </div>
+                    <div class="cell small-4">
+                        <label for="filter-relevance">Relevance:</label>
+                        <select id="filter-relevance">
+                            <option value="high">High</option>
+                            <option value="low">Low</option>
+                        </select>
+                    </div>
+                    <div class="cell small-4">
+                        <label for="filter-popularity">Popularity:</label>
+                        <select id="filter-popularity">
+                            <option value="popular">Popular</option>
+                            <option value="less-popular">Less Popular</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="grid-x grid-padding-x results-section">
+            <ul class="cell small-12" id="results-list">
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <div class="grid-container">
+            <p>Created with ❤️ by Aaron Ge</p>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.7.4/js/foundation.min.js"></script>
+    <script src="./scripts/main.js"></script>
+</body>
+</html>

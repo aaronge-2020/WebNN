@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.top-bar {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1rem;
+}
+
+.top-bar h1 {
+    margin-bottom: 0;
+}
+
+main {
+    padding: 2rem;
+}
+
+.search-section {
+    margin-bottom: 2rem;
+}
+
+.filters {
+    margin-top: 1rem;
+}
+
+.results-section {
+    margin-top: 2rem;
+}
+
+#results-list {
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    margin-top: 1rem;
+}
+
+footer {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+/* Add these lines at the end of the file */
+.keyword {
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+.remove-keyword {
+    font-weight: bold;
+    margin-left: 0.25rem;
+}

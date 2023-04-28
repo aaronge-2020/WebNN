@@ -1,0 +1,40 @@
+{
+    "articles": [
+        {
+            "id": 1,
+            "title": "Understanding Deep Learning for Natural Language Processing",
+            "abstract": "This paper provides an overview of deep learning techniques applied to natural language processing tasks, such as text classification, sentiment analysis, and machine translation.",
+            "date": "2022-08-12",
+            "source": "Journal of Artificial Intelligence Research",
+            "popularity": 1345,
+            "relevance": 0.9
+        },
+        {
+            "id": 2,
+            "title": "Sentiment Analysis Using Machine Learning Techniques",
+            "abstract": "In this research, we explore various machine learning algorithms, such as Naive Bayes, Support Vector Machines, and Decision Trees, for sentiment analysis on product reviews and social media posts.",
+            "date": "2022-06-21",
+            "source": "International Journal of Data Science and Analytics",
+            "popularity": 892,
+            "relevance": 0.7
+        },
+        {
+            "id": 3,
+            "title": "Efficient Text Summarization with Transformer Models",
+            "abstract": "This article presents a novel approach to abstractive text summarization using transformer-based models, including BERT and GPT-3, which significantly outperforms existing techniques.",
+            "date": "2022-07-25",
+            "source": "Conference on Neural Information Processing Systems",
+            "popularity": 2048,
+            "relevance": 0.8
+        },
+        {
+            "id": 4,
+            "title": "Topic Modeling in Large-scale Text Corpora",
+            "abstract": "We introduce a scalable and efficient topic modeling technique based on Latent Dirichlet Allocation for analyzing large-scale text corpora, demonstrating its effectiveness in various domains such as news articles, research papers, and social media data.",
+            "date": "2022-03-10",
+            "source": "Journal of Big Data",
+            "popularity": 1578,
+            "relevance": 0.6
+        }
+    ]
+}
