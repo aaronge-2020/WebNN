@@ -1,11 +1,3 @@
-// const backend = 'webgl'; // 'cpu' or 'wasm'
-// const context = await navigator.ml.createContext();
-// const tf = context.tf;
-// await tf.setBackend(backend);
-// await tf.ready();
-
-
-
 const searchButton = document.getElementById("search-button");
 const filterDate = document.getElementById("filter-date");
 const filterRelevance = document.getElementById("filter-relevance");
@@ -40,8 +32,6 @@ function searchForArticles(keywordsArray, sortBy) {
         });
 }
 
-
-
 function displaySearchedArticles(articles) {
     resultsList.innerHTML = '';
 
@@ -52,18 +42,22 @@ function displaySearchedArticles(articles) {
         listItem.dataset.popularity = article.popularity;
         listItem.dataset.relevance = article.relevance;
         listItem.innerHTML = `
-                <h2 class="title">${article.title}</h2>
+                <a href=${article.website}> <h2 class="title">${article.title}</h2> </a>
                 <p class="abstract">${article.abstract}</p>
                 <p>Published: ${article.date} </p> 
                 <p> Popularity: ${article.popularity} </p>
                 <p> Relevance: ${article.relevance} </p>
-                <button class="save-article">Save Article</button>
+                <button class="save-article button primary">Save Article</button> 
+                <br>
+                Feedback:
                 <button class="positive-feedback">👍</button>
                 <button class="negative-feedback">👎</button>
             `;
-
+        const saveArticleButton = listItem.querySelector('.save-article');
         listItem.querySelector('.save-article').addEventListener('click', () => {
             storeArticle(article);
+            saveArticleButton.classList.remove('primary');
+            saveArticleButton.classList.add('secondary');
         });
 
         listItem.querySelector('.positive-feedback').addEventListener('click', () => {
@@ -80,19 +74,33 @@ function displaySearchedArticles(articles) {
 
 
 function storeArticle(article) {
-    // Store the article for future reference
-    // You can use localStorage, IndexedDB, or a server-side database for this purpose
-    console.log('Article stored:', article);
+    // Retrieve existing articles from local storage
+    let storedArticles = JSON.parse(localStorage.getItem('articles')) || [];
+
+    // Check if the article is already stored
+    let isArticleStored = storedArticles.some(storedArticle => storedArticle.title === article.title);
+
+    // Store the article only if it's not already stored
+    if (!isArticleStored) {
+        storedArticles.push(article);
+        localStorage.setItem('articles', JSON.stringify(storedArticles));
+        console.log('Article stored:', article);
+    }
 }
 
 function recordFeedback(article, feedbackType) {
-    // Save the feedback into a database
-    // You can use a server-side database like MongoDB, PostgreSQL, or Firebase for this purpose
+    // Retrieve existing feedback from local storage
+    let feedback = JSON.parse(localStorage.getItem('feedback')) || {};
 
-    console.log(`Feedback for article "${article.title}":`, feedbackType);
+    // Check if feedback for the article already exists
+    let isFeedbackRecorded = feedback.hasOwnProperty(article.title);
 
-    // Adjust the application's recommendations based on the user's feedback
-    // You can use machine learning algorithms or simple heuristics to achieve this
+    // Record the feedback only if it's not already recorded or has changed
+    if (!isFeedbackRecorded || feedback[article.title] !== feedbackType) {
+        feedback[article.title] = feedbackType;
+        localStorage.setItem('feedback', JSON.stringify(feedback));
+        console.log(`Feedback for article "${article.title}" recorded:`, feedbackType);
+    }
 }
 
 // Add event listener for the addKeywordButton
@@ -141,12 +149,12 @@ function sortArticles(articles, sortBy) {
     } else if (sortBy === 'date-asc') {
         return articles.sort((a, b) => new Date(a.date) - new Date(b.date));
     } else if (sortBy === 'popularity-desc') {
-        return articles.sort((a, b) => new Number(b.popularity)  - new Number(a.popularity) );
+        return articles.sort((a, b) => new Number(b.popularity) - new Number(a.popularity));
     } else if (sortBy === 'popularity-asc') {
         return articles.sort((a, b) => a.popularity - b.popularity);
     } else if (sortBy === 'low') {
         return articles.sort((a, b) => b.relevance - a.relevance);
-    }else if (sortBy === 'high') {
+    } else if (sortBy === 'high') {
         return articles.sort((a, b) => a.relevance - b.relevance);
     } else {
         return articles;
