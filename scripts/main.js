@@ -1,4 +1,6 @@
-const searchButton = document.getElementById("search-button");
+
+
+
 const filterDate = document.getElementById("filter-date");
 const filterRelevance = document.getElementById("filter-relevance");
 const filterPopularity = document.getElementById("filter-popularity");
@@ -6,7 +8,127 @@ const resultsList = document.getElementById("results-list");
 const keywordInput = document.getElementById("keyword-input");
 const addKeywordButton = document.getElementById("add-keyword-button");
 const keywordsContainer = document.getElementById("keywords-container");
+const ARTICLES_PER_PAGE = 5;
 
+
+function displaySearchedArticles(articles, currentPage = 1) {
+    resultsList.innerHTML = '';
+
+    const startIndex = (currentPage - 1) * ARTICLES_PER_PAGE;
+    const endIndex = startIndex + ARTICLES_PER_PAGE;
+
+    const displayedArticles = articles.slice(startIndex, endIndex);
+
+    displayedArticles.forEach(renderArticle);
+
+    updatePagination(articles, currentPage);
+}
+
+function renderArticle(article) {
+    const listItem = document.createElement('li');
+    listItem.classList.add("article");
+    listItem.dataset.date = article.date;
+    const datetime = new Date(article.date);
+    const formattedDatetime = datetime.toLocaleString();
+
+    listItem.innerHTML = `
+        <a href=${article.link}> <h2 class="title">${article.title}</h2> </a>
+        <p class="abstract">${article.abstract}</p>
+        <p><b>Published: </b> ${formattedDatetime} </p> 
+        <button class="save-article button primary">Save Article</button> 
+        <br>
+        Feedback:
+        <button class="positive-feedback">👍</button>
+        <button class="negative-feedback">👎</button>
+    `;
+
+    const saveArticleButton = listItem.querySelector('.save-article');
+    listItem.querySelector('.save-article').addEventListener('click', () => {
+        storeArticle(article);
+        saveArticleButton.classList.remove('primary');
+        saveArticleButton.classList.add('secondary');
+    });
+
+    listItem.querySelector('.positive-feedback').addEventListener('click', () => {
+        recordFeedback(article, 'positive');
+    });
+
+    listItem.querySelector('.negative-feedback').addEventListener('click', () => {
+        recordFeedback(article, 'negative');
+    });
+
+    resultsList.appendChild(listItem);
+}
+
+function updatePagination(articles, currentPage) {
+    const totalPages = Math.ceil(articles.length / ARTICLES_PER_PAGE);
+    const paginationContainer = document.getElementById("pagination-container");
+    paginationContainer.innerHTML = "";
+
+    const range = 4;
+
+    // Add "Previous Page" button
+    const prevButton = document.createElement("li");
+    prevButton.classList.add("pagination-previous");
+    prevButton.disabled = currentPage === 1;
+    const prevButtonText = document.createElement("a");
+    prevButtonText.textContent = "Previous";
+    prevButtonText.href = "#";
+    prevButtonText.addEventListener("click", (event) => {
+        event.preventDefault();
+        if (currentPage > 1) {
+            displaySearchedArticles(articles, currentPage - 1);
+        }
+    });
+    prevButton.appendChild(prevButtonText);
+    paginationContainer.appendChild(prevButton);
+
+    // Add individual page buttons
+    for (let i = 1; i <= totalPages; i++) {
+        if (i === 1 || i === totalPages || (i >= currentPage - range && i <= currentPage + range)) {
+            const pageButtonContainer = document.createElement("li");
+            const paginationButton = document.createElement("a");
+            paginationButton.href = "#";
+            paginationButton.textContent = i;
+
+            if (i === currentPage) {
+                pageButtonContainer.classList.add("current");
+            }
+
+            paginationButton.addEventListener("click", (event) => {
+                event.preventDefault();
+                displaySearchedArticles(articles, i);
+            });
+
+            pageButtonContainer.appendChild(paginationButton);
+            paginationContainer.appendChild(pageButtonContainer);
+        } else if (i === currentPage - range - 1 || i === currentPage + range + 1) {
+            const ellipsis = document.createElement("li");
+            ellipsis.classList.add("ellipsis");
+            ellipsis.textContent = "...";
+            paginationContainer.appendChild(ellipsis);
+        }
+    }
+
+    // Add "Next Page" button
+    const nextButton = document.createElement("li");
+    nextButton.classList.add("pagination-next");
+    nextButton.disabled = currentPage === totalPages;
+    const nextButtonText = document.createElement("a");
+    nextButtonText.textContent = "Next";
+    nextButtonText.href = "#";
+    nextButtonText.addEventListener("click", (event) => {
+        event.preventDefault();
+        if (currentPage < totalPages) {
+            displaySearchedArticles(articles, currentPage + 1);
+        }
+    });
+    nextButton.appendChild(nextButtonText);
+    paginationContainer.appendChild(nextButton);
+}
+
+
+const searchButton = document.getElementById("search-button");
 searchButton.addEventListener("click", () => {
     const keywordsArray = Array.from(keywordsContainer.querySelectorAll(".keyword"));
     const allKeywordTexts = keywordsArray.map(keywordItem => keywordItem.textContent.substring(0, keywordItem.textContent.length - 1).trim());
@@ -15,7 +137,7 @@ searchButton.addEventListener("click", () => {
 });
 
 function searchForArticles(keywordsArray, sortBy) {
-    fetch('articles.json')
+    fetch('articles_database_2023-04-28.json')
         .then(response => response.json())
         .then(data => {
             const articles = data.articles;
@@ -32,45 +154,7 @@ function searchForArticles(keywordsArray, sortBy) {
         });
 }
 
-function displaySearchedArticles(articles) {
-    resultsList.innerHTML = '';
 
-    articles.forEach(article => {
-        const listItem = document.createElement('li');
-        listItem.classList.add("article");
-        listItem.dataset.date = article.date;
-        listItem.dataset.popularity = article.popularity;
-        listItem.dataset.relevance = article.relevance;
-        listItem.innerHTML = `
-                <a href=${article.website}> <h2 class="title">${article.title}</h2> </a>
-                <p class="abstract">${article.abstract}</p>
-                <p>Published: ${article.date} </p> 
-                <p> Popularity: ${article.popularity} </p>
-                <p> Relevance: ${article.relevance} </p>
-                <button class="save-article button primary">Save Article</button> 
-                <br>
-                Feedback:
-                <button class="positive-feedback">👍</button>
-                <button class="negative-feedback">👎</button>
-            `;
-        const saveArticleButton = listItem.querySelector('.save-article');
-        listItem.querySelector('.save-article').addEventListener('click', () => {
-            storeArticle(article);
-            saveArticleButton.classList.remove('primary');
-            saveArticleButton.classList.add('secondary');
-        });
-
-        listItem.querySelector('.positive-feedback').addEventListener('click', () => {
-            recordFeedback(article, 'positive');
-        });
-
-        listItem.querySelector('.negative-feedback').addEventListener('click', () => {
-            recordFeedback(article, 'negative');
-        });
-
-        resultsList.appendChild(listItem);
-    });
-}
 
 
 function storeArticle(article) {
@@ -166,7 +250,6 @@ function applyFilters(filterType) {
     const sortByPopularity = filterPopularity.value;
     const sortByRelevance = filterRelevance.value;
 
-    let articles = getArticlesFromDOM();
     let sortBy;
 
     console.log(filterType);
@@ -186,11 +269,26 @@ function applyFilters(filterType) {
     }
     console.log(sortBy);
 
-    if (sortBy) {
-        articles = sortArticles(articles, sortBy);
-    }
+    const keywordsArray = Array.from(keywordsContainer.querySelectorAll(".keyword"));
+    const allKeywordTexts = keywordsArray.map(keywordItem => keywordItem.textContent.substring(0, keywordItem.textContent.length - 1).trim());
 
-    displaySearchedArticles(articles);
+    fetch('articles_database_2023-04-28.json')
+        .then(response => response.json())
+        .then(data => {
+            const articles = data.articles;
+
+            let matchingArticles = articles.filter(article => {
+                const articleText = (article.title + " " + article.abstract).toLowerCase();
+                return allKeywordTexts.every(keyword => articleText.includes(keyword.toLowerCase()));
+            });
+
+            if (sortBy) {
+                matchingArticles = sortArticles(matchingArticles, sortBy);
+            }
+
+            displaySearchedArticles(matchingArticles);
+        });
+        
 }
 
 

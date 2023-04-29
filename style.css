@@ -34,7 +34,7 @@ main {
     padding: 0;
 }
 
-li {
+.article {
     list-style-type: none;
     margin-bottom: 1rem;
     padding: 1rem;

@@ -1,0 +1,312 @@
+title,authors,abstract,categories,link,date
+Multimodal Data Integration for Oncology in the Era of Deep Neural Networks: A Review,"Asim Waqas, Aakash Tripathi, Ravi P. Ramachandran, Paul Stewart, Ghulam Rasool","Cancer has relational information residing at varying scales, modalities, and
+resolutions of the acquired data, such as radiology, pathology, genomics,
+proteomics, and clinical records. Integrating diverse data types can improve
+the accuracy and reliability of cancer diagnosis and treatment. There can be
+disease-related information that is too subtle for humans or existing
+technological tools to discern visually. Traditional methods typically focus on
+partial or unimodal information about biological systems at individual scales
+and fail to encapsulate the complete spectrum of the heterogeneous nature of
+data. Deep neural networks have facilitated the development of sophisticated
+multimodal data fusion approaches that can extract and integrate relevant
+information from multiple sources. Recent deep learning frameworks such as
+Graph Neural Networks (GNNs) and Transformers have shown remarkable success in
+multimodal learning. This review article provides an in-depth analysis of the
+state-of-the-art in GNNs and Transformers for multimodal data fusion in
+oncology settings, highlighting notable research studies and their findings. We
+also discuss the foundations of multimodal learning, inherent challenges, and
+opportunities for integrative learning in oncology. By examining the current
+state and potential future developments of multimodal data integration in
+oncology, we aim to demonstrate the promising role that multimodal neural
+networks can play in cancer prevention, early detection, and treatment through
+informed oncology practices in personalized settings.",cs.LG,http://arxiv.org/pdf/2303.06471v1,2023-03-11 17:52:03+00:00
+Single-Cell Multimodal Prediction via Transformers,"Wenzhuo Tang, Hongzhi Wen, Renming Liu, Jiayuan Ding, Wei Jin, Yuying Xie, Hui Liu, Jiliang Tang","The recent development of multimodal single-cell technology has made the
+possibility of acquiring multiple omics data from individual cells, thereby
+enabling a deeper understanding of cellular states and dynamics. Nevertheless,
+the proliferation of multimodal single-cell data also introduces tremendous
+challenges in modeling the complex interactions among different modalities. The
+recently advanced methods focus on constructing static interaction graphs and
+applying graph neural networks (GNNs) to learn from multimodal data. However,
+such static graphs can be suboptimal as they do not take advantage of the
+downstream task information; meanwhile GNNs also have some inherent limitations
+when deeply stacking GNN layers. To tackle these issues, in this work, we
+investigate how to leverage transformers for multimodal single-cell data in an
+end-to-end manner while exploiting downstream task information. In particular,
+we propose a scMoFormer framework which can readily incorporate external domain
+knowledge and model the interactions within each modality and cross modalities.
+Extensive experiments demonstrate that scMoFormer achieves superior performance
+on various benchmark datasets. Note that scMoFormer won a Kaggle silver medal
+with the rank of $24\ /\ 1221$ (Top 2%) without ensemble in a NeurIPS 2022
+competition. Our implementation is publicly available at Github.","q-bio.GN, cs.LG",http://arxiv.org/pdf/2303.00233v1,2023-03-01 05:03:23+00:00
+Time to Embrace Natural Language Processing (NLP)-based Digital Pathology: Benchmarking NLP- and Convolutional Neural Network-based Deep Learning Pipelines,"Min Cen, Xingyu Li, Bangwei Guo, Jitendra Jonnagaddala, Hong Zhang, Xu Steven Xu","NLP-based computer vision models, particularly vision transformers, have been
+shown to outperform CNN models in many imaging tasks. However, most digital
+pathology artificial-intelligence models are based on CNN architectures,
+probably owing to a lack of data regarding NLP models for pathology images. In
+this study, we developed digital pathology pipelines to benchmark the five most
+recently proposed NLP models (vision transformer (ViT), Swin Transformer,
+MobileViT, CMT, and Sequencer2D) and four popular CNN models (ResNet18,
+ResNet50, MobileNetV2, and EfficientNet) to predict biomarkers in colorectal
+cancer (microsatellite instability, CpG island methylator phenotype, and BRAF
+mutation). Hematoxylin and eosin-stained whole-slide images from Molecular and
+Cellular Oncology and The Cancer Genome Atlas were used as training and
+external validation datasets, respectively. Cross-study external validations
+revealed that the NLP-based models significantly outperformed the CNN-based
+models in biomarker prediction tasks, improving the overall prediction and
+precision up to approximately 10% and 26%, respectively. Notably, compared with
+existing models in the current literature using large training datasets, our
+NLP models achieved state-of-the-art predictions for all three biomarkers using
+a relatively small training dataset, suggesting that large training datasets
+are not a prerequisite for NLP models or transformers, and NLP may be more
+suitable for clinical studies in which small training datasets are commonly
+collected. The superior performance of Sequencer2D suggests that further
+research and innovation on both transformer and bidirectional long short-term
+memory architectures are warranted in the field of digital pathology. NLP
+models can replace classic CNN architectures and become the new workhorse
+backbone in the field of digital pathology.","cs.CL, cs.CV, cs.LG, eess.IV, q-bio.QM",http://arxiv.org/pdf/2302.10406v1,2023-02-21 02:42:03+00:00
+HeartBEiT: Vision Transformer for Electrocardiogram Data Improves Diagnostic Performance at Low Sample Sizes,"Akhil Vaid, Joy Jiang, Ashwin Sawant, Stamatios Lerakis, Edgar Argulian, Yuri Ahuja, Joshua Lampert, Alexander Charney, Hayit Greenspan, Benjamin Glicksberg, Jagat Narula, Girish Nadkarni","The electrocardiogram (ECG) is a ubiquitous diagnostic modality.
+Convolutional neural networks (CNNs) applied towards ECG analysis require large
+sample sizes, and transfer learning approaches result in suboptimal performance
+when pre-training is done on natural images. We leveraged masked image modeling
+to create the first vision-based transformer model, HeartBEiT, for
+electrocardiogram waveform analysis. We pre-trained this model on 8.5 million
+ECGs and then compared performance vs. standard CNN architectures for diagnosis
+of hypertrophic cardiomyopathy, low left ventricular ejection fraction and ST
+elevation myocardial infarction using differing training sample sizes and
+independent validation datasets. We show that HeartBEiT has significantly
+higher performance at lower sample sizes compared to other models. Finally, we
+also show that HeartBEiT improves explainability of diagnosis by highlighting
+biologically relevant regions of the EKG vs. standard CNNs. Thus, we present
+the first vision-based waveform transformer that can be used to develop
+specialized models for ECG analysis especially at low sample sizes.","eess.SP, cs.LG",http://arxiv.org/pdf/2212.14040v1,2022-12-13 16:39:21+00:00
+CoViT: Real-time phylogenetics for the SARS-CoV-2 pandemic using Vision Transformers,"Zuher Jahshan, Can Alkan, Leonid Yavits","Real-time viral genome detection, taxonomic classification and phylogenetic
+analysis are critical for efficient tracking and control of viral pandemics
+such as Covid-19. However, the unprecedented and still growing amounts of viral
+genome data create a computational bottleneck, which effectively prevents the
+real-time pandemic tracking. For genomic tracing to work effectively, each new
+viral genome sequence must be placed in its pangenomic context. Re-inferring
+the full phylogeny of SARS-CoV-2, with datasets containing millions of samples,
+is prohibitively slow even using powerful computational resources. We are
+attempting to alleviate the computational bottleneck by modifying and applying
+Vision Transformer, a recently developed neural network model for image
+recognition, to taxonomic classification and placement of viral genomes, such
+as SARS-CoV-2. Our solution, CoViT, places SARS-CoV-2 genome accessions onto
+SARS-CoV-2 phylogenetic tree with the accuracy of 94.2%. Since CoViT is a
+classification neural network, it provides more than one likely placement.
+Specifically, one of the two most likely placements suggested by CoViT is
+correct with the probability of 97.9%. The probability of the correct placement
+to be found among the five most likely placements generated by CoViT is 99.8%.
+The placement time is 0.055s per individual genome running on NVIDIAs GeForce
+RTX 2080 Ti GPU. We make CoViT available to research community through GitHub:
+https://github.com/zuherJahshan/covit.","cs.LG, q-bio.QM",http://arxiv.org/pdf/2208.05004v2,2022-08-09 19:13:41+00:00
+Transformer Neural Networks Attending to Both Sequence and Structure for Protein Prediction Tasks,"Anowarul Kabir, Amarda Shehu","The increasing number of protein sequences decoded from genomes is opening up
+new avenues of research on linking protein sequence to function with
+transformer neural networks. Recent research has shown that the number of known
+protein sequences supports learning useful, task-agnostic sequence
+representations via transformers. In this paper, we posit that learning joint
+sequence-structure representations yields better representations for
+function-related prediction tasks. We propose a transformer neural network that
+attends to both sequence and tertiary structure. We show that such joint
+representations are more powerful than sequence-based representations only, and
+they yield better performance on superfamily membership across various metrics.","cs.LG, cs.AI, q-bio.QM",http://arxiv.org/pdf/2206.11057v1,2022-06-17 18:40:19+00:00
+Using Deep Learning Sequence Models to Identify SARS-CoV-2 Divergence,"Yanyi Ding, Zhiyi Kuang, Yuxin Pei, Jeff Tan, Ziyu Zhang, Joseph Konan","SARS-CoV-2 is an upper respiratory system RNA virus that has caused over 3
+million deaths and infecting over 150 million worldwide as of May 2021. With
+thousands of strains sequenced to date, SARS-CoV-2 mutations pose significant
+challenges to scientists on keeping pace with vaccine development and public
+health measures. Therefore, an efficient method of identifying the divergence
+of lab samples from patients would greatly aid the documentation of SARS-CoV-2
+genomics. In this study, we propose a neural network model that leverages
+recurrent and convolutional units to directly take in amino acid sequences of
+spike proteins and classify corresponding clades. We also compared our model's
+performance with Bidirectional Encoder Representations from Transformers (BERT)
+pre-trained on protein database. Our approach has the potential of providing a
+more computationally efficient alternative to current homology based
+intra-species differentiation.","q-bio.QM, cs.LG",http://arxiv.org/pdf/2111.06593v1,2021-11-12 07:52:11+00:00
+Deciphering the Language of Nature: A transformer-based language model for deleterious mutations in proteins,"Theodore Jiang, Li Fang, Kai Wang","Various machine-learning models, including deep neural network models, have
+already been developed to predict deleteriousness of missense (non-synonymous)
+mutations. Potential improvements to the current state of the art, however, may
+still benefit from a fresh look at the biological problem using more
+sophisticated self-adaptive machine-learning approaches. Recent advances in the
+natural language processing field show transformer models-a type of deep neural
+network-to be particularly powerful at modeling sequence information with
+context dependence. In this study, we introduce MutFormer, a transformer-based
+model for the prediction of deleterious missense mutations, which uses
+reference and mutated protein sequences from the human genome as the primary
+features. MutFormer takes advantage of a combination of self-attention layers
+and convolutional layers to learn both long-range and short-range dependencies
+between amino acid mutations in a protein sequence. In this study, we first
+pre-trained MutFormer on reference protein sequences and mutated protein
+sequences resulting from common genetic variants observed in human populations.
+We next examined different fine-tuning methods to successfully apply the model
+to deleteriousness prediction of missense mutations. Finally, we evaluated
+MutFormer's performance on multiple testing data sets. We found that MutFormer
+showed similar or improved performance over a variety of existing tools,
+including those that used conventional machine-learning approaches. We conclude
+that MutFormer successfully considers sequence features that are not explored
+in previous studies and could potentially complement existing computational
+predictions or empirically generated functional scores to improve our
+understanding of disease variants.","q-bio.GN, cs.LG, q-bio.QM",http://arxiv.org/pdf/2110.14746v4,2021-10-27 20:17:35+00:00
+Pattern Inversion as a Pattern Recognition Method for Machine Learning,"Alexei Mikhailov, Mikhail Karavay","Artificial neural networks use a lot of coefficients that take a great deal
+of computing power for their adjustment, especially if deep learning networks
+are employed. However, there exist coefficients-free extremely fast
+indexing-based technologies that work, for instance, in Google search engines,
+in genome sequencing, etc. The paper discusses the use of indexing-based
+methods for pattern recognition. It is shown that for pattern recognition
+applications such indexing methods replace with inverse patterns the fully
+inverted files, which are typically employed in search engines. Not only such
+inversion provide automatic feature extraction, which is a distinguishing mark
+of deep learning, but, unlike deep learning, pattern inversion supports almost
+instantaneous learning, which is a consequence of absence of coefficients. The
+paper discusses a pattern inversion formalism that makes use on a novel pattern
+transform and its application for unsupervised instant learning. Examples
+demonstrate a view-angle independent recognition of three-dimensional objects,
+such as cars, against arbitrary background, prediction of remaining useful life
+of aircraft engines, and other applications. In conclusion, it is noted that,
+in neurophysiology, the function of the neocortical mini-column has been widely
+debated since 1957. This paper hypothesize that, mathematically, the cortical
+mini-column can be described as an inverse pattern, which physically serves as
+a connection multiplier expanding associations of inputs with relevant pattern
+classes.","cs.CV, cs.LG, cs.NE, C.3; I.2; I.5",http://arxiv.org/pdf/2108.10242v1,2021-08-15 10:25:51+00:00
+Exploring the Limits of Out-of-Distribution Detection,"Stanislav Fort, Jie Ren, Balaji Lakshminarayanan","Near out-of-distribution detection (OOD) is a major challenge for deep neural
+networks. We demonstrate that large-scale pre-trained transformers can
+significantly improve the state-of-the-art (SOTA) on a range of near OOD tasks
+across different data modalities. For instance, on CIFAR-100 vs CIFAR-10 OOD
+detection, we improve the AUROC from 85% (current SOTA) to more than 96% using
+Vision Transformers pre-trained on ImageNet-21k. On a challenging genomics OOD
+detection benchmark, we improve the AUROC from 66% to 77% using transformers
+and unsupervised pre-training. To further improve performance, we explore the
+few-shot outlier exposure setting where a few examples from outlier classes may
+be available; we show that pre-trained transformers are particularly
+well-suited for outlier exposure, and that the AUROC of OOD detection on
+CIFAR-100 vs CIFAR-10 can be improved to 98.7% with just 1 image per OOD class,
+and 99.46% with 10 images per OOD class. For multi-modal image-text pre-trained
+transformers such as CLIP, we explore a new way of using just the names of
+outlier classes as a sole source of information without any accompanying
+images, and show that this outperforms previous SOTA on standard vision OOD
+benchmark tasks.",cs.LG,http://arxiv.org/pdf/2106.03004v3,2021-06-06 01:45:11+00:00
+General Multi-label Image Classification with Transformers,"Jack Lanchantin, Tianlu Wang, Vicente Ordonez, Yanjun Qi","Multi-label image classification is the task of predicting a set of labels
+corresponding to objects, attributes or other entities present in an image. In
+this work we propose the Classification Transformer (C-Tran), a general
+framework for multi-label image classification that leverages Transformers to
+exploit the complex dependencies among visual features and labels. Our approach
+consists of a Transformer encoder trained to predict a set of target labels
+given an input set of masked labels, and visual features from a convolutional
+neural network. A key ingredient of our method is a label mask training
+objective that uses a ternary encoding scheme to represent the state of the
+labels as positive, negative, or unknown during training. Our model shows
+state-of-the-art performance on challenging datasets such as COCO and Visual
+Genome. Moreover, because our model explicitly represents the uncertainty of
+labels during training, it is more general by allowing us to produce improved
+results for images with partial or extra label annotations during inference. We
+demonstrate this additional capability in the COCO, Visual Genome, News500, and
+CUB image datasets.","cs.CV, cs.AI, cs.LG",http://arxiv.org/pdf/2011.14027v1,2020-11-27 23:20:35+00:00
+Self-supervised edge features for improved Graph Neural Network training,"Arijit Sehanobish, Neal G. Ravindra, David van Dijk","Graph Neural Networks (GNN) have been extensively used to extract meaningful
+representations from graph structured data and to perform predictive tasks such
+as node classification and link prediction. In recent years, there has been a
+lot of work incorporating edge features along with node features for prediction
+tasks. One of the main difficulties in using edge features is that they are
+often handcrafted, hard to get, specific to a particular domain, and may
+contain redundant information. In this work, we present a framework for
+creating new edge features, applicable to any domain, via a combination of
+self-supervised and unsupervised learning. In addition to this, we use
+Forman-Ricci curvature as an additional edge feature to encapsulate the local
+geometry of the graph. We then encode our edge features via a Set Transformer
+and combine them with node features extracted from popular GNN architectures
+for node classification in an end-to-end training scheme. We validate our work
+on three biological datasets comprising of single-cell RNA sequencing data of
+neurological disease, \textit{in vitro} SARS-CoV-2 infection, and human
+COVID-19 patients. We demonstrate that our method achieves better performance
+on node classification tasks over baseline Graph Attention Network (GAT) and
+Graph Convolutional Network (GCN) models. Furthermore, given the attention
+mechanism on edge and node features, we are able to interpret the cell types
+and genes that determine the course and severity of COVID-19, contributing to a
+growing list of potential disease biomarkers and therapeutic targets.","eess.IV, cs.LG, q-bio.GN, stat.ML, I.2.4; J.3",http://arxiv.org/pdf/2007.04777v1,2020-06-23 20:18:22+00:00
+Gaining Insight into SARS-CoV-2 Infection and COVID-19 Severity Using Self-supervised Edge Features and Graph Neural Networks,"Arijit Sehanobish, Neal G. Ravindra, David van Dijk","A molecular and cellular understanding of how SARS-CoV-2 variably infects and
+causes severe COVID-19 remains a bottleneck in developing interventions to end
+the pandemic. We sought to use deep learning to study the biology of SARS-CoV-2
+infection and COVID-19 severity by identifying transcriptomic patterns and cell
+types associated with SARS-CoV-2 infection and COVID-19 severity. To do this,
+we developed a new approach to generating self-supervised edge features. We
+propose a model that builds on Graph Attention Networks (GAT), creates edge
+features using self-supervised learning, and ingests these edge features via a
+Set Transformer. This model achieves significant improvements in predicting the
+disease state of individual cells, given their transcriptome. We apply our
+model to single-cell RNA sequencing datasets of SARS-CoV-2 infected lung
+organoids and bronchoalveolar lavage fluid samples of patients with COVID-19,
+achieving state-of-the-art performance on both datasets with our model. We then
+borrow from the field of explainable AI (XAI) to identify the features (genes)
+and cell types that discriminate bystander vs. infected cells across time and
+moderate vs. severe COVID-19 disease. To the best of our knowledge, this
+represents the first application of deep learning to identifying the molecular
+and cellular determinants of SARS-CoV-2 infection and COVID-19 severity using
+single-cell omics data.","cs.LG, q-bio.GN, stat.ML",http://arxiv.org/pdf/2006.12971v2,2020-06-23 13:22:16+00:00
+Cell Type Identification from Single-Cell Transcriptomic Data via Semi-supervised Learning,"Xishuang Dong, Shanta Chowdhury, Uboho Victor, Xiangfang Li, Lijun Qian","Cell type identification from single-cell transcriptomic data is a common
+goal of single-cell RNA sequencing (scRNAseq) data analysis. Neural networks
+have been employed to identify cell types from scRNAseq data with high
+performance. However, it requires a large mount of individual cells with
+accurate and unbiased annotated types to build the identification models.
+Unfortunately, labeling the scRNAseq data is cumbersome and time-consuming as
+it involves manual inspection of marker genes. To overcome this challenge, we
+propose a semi-supervised learning model to use unlabeled scRNAseq cells and
+limited amount of labeled scRNAseq cells to implement cell identification.
+Firstly, we transform the scRNAseq cells to ""gene sentences"", which is inspired
+by similarities between natural language system and gene system. Then genes in
+these sentences are represented as gene embeddings to reduce data sparsity.
+With these embeddings, we implement a semi-supervised learning model based on
+recurrent convolutional neural networks (RCNN), which includes a shared
+network, a supervised network and an unsupervised network. The proposed model
+is evaluated on macosko2015, a large scale single-cell transcriptomic dataset
+with ground truth of individual cell types. It is observed that the proposed
+model is able to achieve encouraging performance by learning on very limited
+amount of labeled scRNAseq cells together with a large number of unlabeled
+scRNAseq cells.","q-bio.GN, cs.LG",http://arxiv.org/pdf/2005.03994v1,2020-05-06 19:15:43+00:00
+Convolutional Embedded Networks for Population Scale Clustering and Bio-ancestry Inferencing,"Md. Rezaul Karim, Michael Cochez, Achille Zappa, Ratnesh Sahay, Oya Beyan, Dietrich-Rebholz Schuhmann, Stefan Decker","The study of genetic variants can help find correlating population groups to
+identify cohorts that are predisposed to common diseases and explain
+differences in disease susceptibility and how patients react to drugs. Machine
+learning algorithms are increasingly being applied to identify interacting GVs
+to understand their complex phenotypic traits. Since the performance of a
+learning algorithm not only depends on the size and nature of the data but also
+on the quality of underlying representation, deep neural networks can learn
+non-linear mappings that allow transforming GVs data into more clustering and
+classification friendly representations than manual feature selection. In this
+paper, we proposed convolutional embedded networks in which we combine two DNN
+architectures called convolutional embedded clustering and convolutional
+autoencoder classifier for clustering individuals and predicting geographic
+ethnicity based on GVs, respectively. We employed CAE-based representation
+learning on 95 million GVs from the 1000 genomes and Simons genome diversity
+projects. Quantitative and qualitative analyses with a focus on accuracy and
+scalability show that our approach outperforms state-of-the-art approaches such
+as VariantSpark and ADMIXTURE. In particular, CEC can cluster targeted
+population groups in 22 hours with an adjusted rand index of 0.915, the
+normalized mutual information of 0.92, and the clustering accuracy of 89%.
+Contrarily, the CAE classifier can predict the geographic ethnicity of unknown
+samples with an F1 and Mathews correlation coefficient(MCC) score of 0.9004 and
+0.8245, respectively. To provide interpretations of the predictions, we
+identify significant biomarkers using gradient boosted trees(GBT) and SHAP.
+Overall, our approach is transparent and faster than the baseline methods, and
+scalable for 5% to 100% of the full human genome.","cs.LG, q-bio.QM, stat.ML",http://arxiv.org/pdf/1805.12218v2,2018-05-30 20:30:13+00:00
+Learning Genomic Representations to Predict Clinical Outcomes in Cancer,"Safoora Yousefi, Congzheng Song, Nelson Nauata, Lee Cooper","Genomics are rapidly transforming medical practice and basic biomedical
+research, providing insights into disease mechanisms and improving therapeutic
+strategies, particularly in cancer. The ability to predict the future course of
+a patient's disease from high-dimensional genomic profiling will be essential
+in realizing the promise of genomic medicine, but presents significant
+challenges for state-of-the-art survival analysis methods. In this abstract we
+present an investigation in learning genomic representations with neural
+networks to predict patient survival in cancer. We demonstrate the advantages
+of this approach over existing survival analysis methods using brain tumor
+data.","cs.NE, cs.LG",http://arxiv.org/pdf/1609.08663v1,2016-09-27 20:53:16+00:00
+Deep Learning in Bioinformatics,"Seonwoo Min, Byunghan Lee, Sungroh Yoon","In the era of big data, transformation of biomedical big data into valuable
+knowledge has been one of the most important challenges in bioinformatics. Deep
+learning has advanced rapidly since the early 2000s and now demonstrates
+state-of-the-art performance in various fields. Accordingly, application of
+deep learning in bioinformatics to gain insight from data has been emphasized
+in both academia and industry. Here, we review deep learning in bioinformatics,
+presenting examples of current research. To provide a useful and comprehensive
+perspective, we categorize research both by the bioinformatics domain (i.e.,
+omics, biomedical imaging, biomedical signal processing) and deep learning
+architecture (i.e., deep neural networks, convolutional neural networks,
+recurrent neural networks, emergent architectures) and present brief
+descriptions of each study. Additionally, we discuss theoretical and practical
+issues of deep learning in bioinformatics and suggest future research
+directions. We believe that this review will provide valuable insights and
+serve as a starting point for researchers to apply deep learning approaches in
+their bioinformatics studies.","cs.LG, q-bio.GN",http://arxiv.org/pdf/1603.06430v5,2016-03-21 13:55:02+00:00
